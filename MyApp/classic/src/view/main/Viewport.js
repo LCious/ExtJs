@@ -52,9 +52,13 @@ Ext.define('App.view.Viewport', {
     items: [
         {
             region: 'south',
+            layout: {
+                pack: 'center'
+            },
             height: 100,
             minHeight: 75,
             maxHeight: 150,
+            textAlign: 'center',
             html: '<p>Footer content</p>'
         },
         // TODO
