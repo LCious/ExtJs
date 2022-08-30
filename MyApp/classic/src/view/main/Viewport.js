@@ -63,15 +63,16 @@ Ext.define('App.view.Viewport', {
             region:'west',
             floatable: false,
             margin: '5 0 0 0',
-            width: 125,
+            width: 170,
             minWidth: 100,
             maxWidth: 250,
             html: '<p>Secondary content like navigation links could go here</p>'
         },
         {
+            title: 'Main content',
             collapsible: false,
             region: 'center',
-            margin: '5 0 0 0',
+            margin: '5 0 0 5',
             // xtype: 'tabpanel',
             // activeTab: 0,
             // itemId: 'viewport-target',
