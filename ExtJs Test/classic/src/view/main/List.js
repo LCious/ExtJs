@@ -20,6 +20,7 @@ Ext.define('FrameworkTest.view.main.List', {
         { text: 'Email', dataIndex: 'email', flex: 1 },
         { text: 'Phone', dataIndex: 'phone', flex: 1 }
     ],
+    
 
     listeners: {
         select: 'onItemSelected'

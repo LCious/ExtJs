@@ -6,7 +6,7 @@
 Ext.define('FrameworkTest.Application', {
     extend: 'Ext.app.Application',
 
-    name: 'FrameworkTest',
+    name: 'ExtJs',
 
     quickTips: false,
     platformConfig: {

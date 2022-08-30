@@ -22,11 +22,11 @@ Ext.define('FrameworkTest.view.main.Main', {
     viewModel: 'main',
 
     ui: 'navigation',
-
+    
     tabBarHeaderPosition: 1,
     titleRotation: 0,
     tabRotation: 0,
-
+    
     header: {
         layout: {
             align: 'stretchmax'
@@ -37,11 +37,14 @@ Ext.define('FrameworkTest.view.main.Main', {
             },
             flex: 0
         },
-        iconCls: 'fa-th-list'
+        iconCls: 'fa-th-list',
+        // columns: [{
+        //     xtype:'Search-view',
+        // }]
     },
 
     tabBar: {
-        flex: 1,
+        flex: 0,
         layout: {
             align: 'stretch',
             overflowHandler: 'none'
@@ -73,7 +76,7 @@ Ext.define('FrameworkTest.view.main.Main', {
             }
         }
     },
-
+    
     items: [{
         title: 'Home',
         iconCls: 'fa-home',
@@ -84,15 +87,16 @@ Ext.define('FrameworkTest.view.main.Main', {
     }, {
         title: 'Users',
         iconCls: 'fa-user',
-        bind: {
-            html: '{loremIpsum}'
-        }
+        items: [{
+            xtype: 'test-search',
+        }]
     }, {
         title: 'Groups',
         iconCls: 'fa-users',
-        bind: {
-            html: '{loremIpsum}'
-        }
+        items: [{
+            xtype: 'dataview-multisort',
+        }],
+
     }, {
         title: 'Settings',
         iconCls: 'fa-cog',
