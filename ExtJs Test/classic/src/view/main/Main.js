@@ -15,7 +15,6 @@ Ext.define('FrameworkTest.view.main.Main', {
 
         'FrameworkTest.view.main.MainController',
         'FrameworkTest.view.main.MainModel',
-        'FrameworkTest.view.main.List'
     ],
 
     controller: 'main',
