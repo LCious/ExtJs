@@ -1,5 +1,5 @@
 Ext.define('FrameworkTest.view.results.ResultModel', {
-    extend: 'Ext.data.Model',
+    extend: 'Ext.app.ViewModel',
     alias:'viewmodel.resultmodel',
     store: {
         fields: [
