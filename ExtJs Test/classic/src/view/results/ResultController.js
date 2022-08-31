@@ -1,4 +1,4 @@
-Ext.define('FrameworkTest.view.result.ResultController', {
+Ext.define('FrameworkTest.view.results.ResultController', {
     extend: 'Ext.app.ViewController',
 
     alias: 'controller.resultcontroller',
