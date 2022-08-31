@@ -38,9 +38,6 @@ Ext.define('FrameworkTest.view.main.Main', {
             flex: 0
         },
         iconCls: 'fa-th-list',
-        // columns: [{
-        //     xtype:'Search-view',
-        // }]
     },
 
     tabBar: {
@@ -80,28 +77,17 @@ Ext.define('FrameworkTest.view.main.Main', {
     items: [{
         title: 'Home',
         iconCls: 'fa-home',
-        // The following grid shares a store with the classic version's grid as well!
         items: [{
-            xtype: 'mainlist'
-        }]
+            xtype: 'resultview',
+        }],
     }, {
         title: 'Users',
         iconCls: 'fa-user',
-        items: [{
-            xtype: 'test-search',
-        }]
-    }, {
-        title: 'Groups',
-        iconCls: 'fa-users',
-        items: [{
-            xtype: 'dataview-multisort',
-        }],
-
-    }, {
-        title: 'Settings',
-        iconCls: 'fa-cog',
         bind: {
             html: '{loremIpsum}'
         }
+        // items: [{
+        //     xtype: 'search',
+        // }]
     }]
 });

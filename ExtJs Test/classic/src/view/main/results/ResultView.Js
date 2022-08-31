@@ -1,78 +1,30 @@
 Ext.define('FrameworkTest.view.results.ResultView', {
     extend: 'Ext.panel.Panel',
-    xtype: 'dataview-multisort',
-    controller: 'dataview-multisort',
+    xtype: 'resultview',
+    // controller: 'resultcontroller',
 
-    requires: [
-        'Ext.toolbar.TextItem',
-        'Ext.view.View',
-        'Ext.ux.BoxReorderer',
-        'Ext.ux.DataView.Animated'
-    ],
-
-    title: 'Multi-sort DataView',
-    layout: 'fit',
-    width: 540,
-    height: 620,
-
-    tbar: {
-        plugins: {
-            ptype: 'boxreorderer',
-            listeners: {
-                drop: 'updateStoreSorters'
-            }
-        },
-
-        defaults: {
-            listeners: {
-                changeDirection: 'updateStoreSorters'
-            }
-        },
-
-        items: [{
-            xtype: 'tbtext',
-            text: 'Sort on these fields:',
-            reorderable: false
-        }, {
-            xtype: 'dataview-multisort-sortbutton',
-            text : 'Type',
-            dataIndex: 'type'
-        }, {
-            xtype: 'dataview-multisort-sortbutton',
-            text : 'Name',
-            dataIndex: 'name'
-        }]
-    },
+    title: 'DataView',
+    width: 400,
+    height: 600,
 
     items: {
         xtype: 'dataview',
         reference: 'dataview',
-        plugins: {
-            ptype: 'ux-animated-dataview'
+        store: {
+            type: 'result',
         },
-
-        itemSelector: 'div.dataview-multisort-item',
+        itemSelector: 'div.resultview-item',
         tpl: [
             '<tpl for=".">',
-                '<div class="dataview-multisort-item">',
-                    '<img src="classic/resources/images/touch-icons/{thumb}" />',
+                '<div class="resultview-item">',
+                    '<img src="classic/resources/images/{thumb}" />',
                     '<h3>{name}</h3>',
                 '</div>',
             '</tpl>'
         ],
-
-        store: {
-            autoLoad: true,
-            sortOnLoad: true,
-            fields: ['name', 'thumb', 'url', 'type'],
-            proxy: {
-                type: 'ajax',
-                url : 'data/sencha-touch-examples.json',
-                reader: {
-                    type: 'json',
-                    rootProperty: ''
-                }
-            }
-        }
     }
+
+    // listeners: {
+    //     select: 'onItemSelected'
+    // }
 });

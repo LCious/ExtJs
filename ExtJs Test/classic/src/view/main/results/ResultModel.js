@@ -1,7 +1,7 @@
-Ext.define('FrameworkTest.results.ResultModel', {
-    // extend: 'Ext.model.Base',
+Ext.define('FrameworkTest.view.results.ResultModel', {
+    extend: 'FrameworkTest.model.Base',
 
-    // fields: [
-    //     'FirstName', 'LastName', 'Department',
-    // ]
+    fields: [
+         'name', 'thumb', 'url', 'type',
+    ]
 });
