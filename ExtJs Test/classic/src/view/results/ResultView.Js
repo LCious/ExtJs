@@ -8,13 +8,13 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     items: {
         xtype: 'dataview',
         reference: 'dataview',
-        bind: { store: '{data}' },
+        bind: { store: '{items}' },
         itemSelector: 'div.resultview',
         tpl: [
             '<tpl for=".">',
             '<div class="resultview-item">',
-            '<img src="classic/resources/images/{data.thumb}" />',
-            '<h3>{data.name}</h3>',
+            '<img src="classic/resources/images/{thumb}" />',
+            '<h3>{name}</h3>',
             '</div>',
             '</tpl>'
         ],
