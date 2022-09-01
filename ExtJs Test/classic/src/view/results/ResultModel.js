@@ -2,9 +2,9 @@ Ext.define('FrameworkTest.view.results.ResultModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.resultmodel',
 
-    fields: [
-        'name', 'thumb', 'url', 'type',
-    ],
+    // fields: [
+    //     'name', 'thumb', 'url', 'type',
+    // ],
 
     // data: [
     //     { name: 'Foo1', thumb: 'test.png', url: 'test.com', type: 'Kazkas' },

@@ -2,7 +2,7 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     extend: 'Ext.panel.Panel',
     xtype: 'resultview',
     // controller: 'resultcontroller',
-    viewmodel: 'resultmodel',
+    viewModel: 'resultmodel',
     title: 'DataView',
     flex: 1,
     items: {
