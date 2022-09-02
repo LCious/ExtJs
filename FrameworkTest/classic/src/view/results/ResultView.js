@@ -6,7 +6,7 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     title: 'DataView',
     flex: 1,
     layout: 'card',
-    activeItem: 'product-list',
+    activeItem: 0,
     /*items: {
         xtype: 'dataview',
         reference: 'dataview',
