@@ -1,5 +1,5 @@
 Ext.define('FrameworkTest.view.results.ResultView', {
-    extend: 'Ext.panel.Panel',
+    extend: 'Ext.Container',
     xtype: 'resultview',
     controller: 'resultcontroller',
     viewModel: 'resultmodel',
@@ -27,33 +27,44 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         // },
     },*/
     items: [{
-        
         xtype: 'dataview',
         itemId: 'product-list',
         bind: { store: '{items}' },
-        itemSelector: 'div.resultview-item',
+        itemSelector: 'div.product-list',
         tpl: [
             '<tpl for=".">',
-            '<div class="resultview-item">',
+            '<div class="product-list">',
             '<img src="classic/resources/images/{thumb}" />',
             '<h3>{name}</h3>',
             '</div>',
             '</tpl>'
         ],
-        scope: this,
-        handler: function () {
-            this.layout.setActiveItem('productDetails');
-        }
+        
+
+            handler: function (tpl) {
+                this.layout.setActiveItem('productDetails');
+            }
+
         }, {
-        // xtype: '',
+       
         html: '<h1>Product List</h1>',
         itemId: 'productDetails',
+        // bind: { store: '{items}' },
+        // itemSelector: 'div.product-item',
+        // tpl: [
+        //     '<tpl for=".">',
+        //     '<div class="product-item">',
+        //     '<img src="classic/resources/images/{thumb}" />',
+        //     '<h3>{name}</h3>',
+        //     '</div>',
+        //     '</tpl>'
+        // ],
         buttons: 
         [{ 
             text:'Back to List',
             reference: 'btnPrev',
             handler:'onPrev',
         }]
-    }]
 
+    }],        
 });
