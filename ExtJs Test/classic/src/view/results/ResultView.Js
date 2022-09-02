@@ -1,11 +1,12 @@
 Ext.define('FrameworkTest.view.results.ResultView', {
     extend: 'Ext.panel.Panel',
     xtype: 'resultview',
-    // controller: 'resultcontroller',
+    controller: 'resultcontroller',
     viewModel: 'resultmodel',
     title: 'DataView',
     flex: 1,
     layout: 'card',
+    activeItem: 'product-list',
     /*items: {
         xtype: 'dataview',
         reference: 'dataview',
@@ -26,6 +27,7 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         // },
     },*/
     items: [{
+        
         xtype: 'dataview',
         itemId: 'product-list',
         bind: { store: '{items}' },
