@@ -39,12 +39,15 @@ Ext.define('FrameworkTest.view.results.ResultView', {
             '</div>',
             '</tpl>'
         ],
-        
-
-            handler: function (tpl) {
-                this.layout.setActiveItem('productDetails');
-            }
-
+        handler: 'onClick',
+        // listeners: {
+        //     itemclick: function (_this, record, item, index, e, eOpts) {
+        //         this.layout.setActiveItem('productDetails'); 
+        //     }
+        // }
+            // handler: function(itemSelector) {            
+            //     this.layout.setActiveItem('productDetails');         
+            // }
         }, {
        
         html: '<h1>Product List</h1>',
