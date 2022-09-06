@@ -1,6 +1,14 @@
-
-.product-list{
-    text-align:center;
-    margin: 8px 8px 8px 0px;
-    height: 200px;
+.x-panel-body{
+    .product-list{
+        margin: 10px 0;
+        text-align:center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        height:auto;
+        .product-item{
+            width: 200px;
+        }
+    }
 }
