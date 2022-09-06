@@ -1,12 +1,13 @@
 Ext.define('FrameworkTest.view.results.ResultView', {
-    extend: 'Ext.Container',
+    extend: 'Ext.panel.Panel',
     xtype: 'resultview',
     controller: 'resultcontroller',
     viewModel: 'resultmodel',
     title: 'DataView',
+    fullscreen: true,
     flex: 1,
     layout: 'card',
-    activeItem: 0,
+    activeItem: 1,
     /*items: {
         xtype: 'dataview',
         reference: 'dataview',
@@ -27,8 +28,9 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         // },
     },*/
     items: [{
+        html: '<h1>Product List</h1>',
         xtype: 'dataview',
-        itemId: 'product-list',
+        id: 'product-list',
         bind: { store: '{items}' },
         itemSelector: 'div.product-list',
         tpl: [
@@ -39,17 +41,18 @@ Ext.define('FrameworkTest.view.results.ResultView', {
             '</div>',
             '</tpl>'
         ],
-        handler: 'onClick',
-        // listeners: {
-        //     itemclick: function (_this, record, item, index, e, eOpts) {
-        //         this.layout.setActiveItem('productDetails'); 
-        //     }
-        // }
-            // handler: function(itemSelector) {            
-            //     this.layout.setActiveItem('productDetails');         
-            // }
-        }, {
-       
+        listeners: {
+            itemclick: {
+                fn: function (view, record, item, index, evt, eOpts) {
+                    var view = this.getView();
+                    currentIndex = view.indexOf(view.getActiveItem()),
+                        next = currentIndex + 1;
+                    view.setActiveItem(next);
+                }
+            }
+        }
+    },
+    {
         html: '<h1>Product List</h1>',
         itemId: 'productDetails',
         // bind: { store: '{items}' },
@@ -62,12 +65,12 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         //     '</div>',
         //     '</tpl>'
         // ],
-        buttons: 
-        [{ 
-            text:'Back to List',
-            reference: 'btnPrev',
-            handler:'onPrev',
-        }]
+        buttons:
+            [{
+                text: 'Back to List',
+                reference: 'btnPrev',
+                handler: 'goBack',
+            }]
 
-    }],        
+    }],
 });

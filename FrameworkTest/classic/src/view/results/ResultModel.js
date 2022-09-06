@@ -24,8 +24,8 @@ Ext.define('FrameworkTest.view.results.ResultModel', {
             data: [
                 { name: 'Foo1', thumb: 'test.png', url: 'test.com', type: 'Kazkas' },
                 { name: 'Foo2', thumb: 'test.png', url: 'test.com', type: 'Kazkas' },
-                { name: 'Foo3', thumb: 'test.png', url: 'test.com', type: 'Kazkas' },
-                { name: 'Foo4', thumb: 'test.png', url: 'test.com', type: 'Kazkas' },
+                // { name: 'Foo3', thumb: 'test.png', url: 'test.com', type: 'Kazkas' },
+                // { name: 'Foo4', thumb: 'test.png', url: 'test.com', type: 'Kazkas' },
             ],
             autoLoad: true
         }
