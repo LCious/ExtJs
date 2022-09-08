@@ -70,17 +70,20 @@ Ext.define('FrameworkTest.view.main.Main', {
     items: [{
         title: 'Home',
         iconCls: 'fa-home',
+        layout:{
+            type:'hbox',
+            align: 'stretch'
+        },
         items: [{
+            xtype: 'searchview',
+        },{
             xtype: 'resultview',
         }],
     }, {
-        title: 'Users',
+        title: 'Contacts',
         iconCls: 'fa-user',
         bind: {
             html: '{loremIpsum}'
         }
-        // items: [{
-        //     xtype: 'search',
-        // }]
     }]
 });

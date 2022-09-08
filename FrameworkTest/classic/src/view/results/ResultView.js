@@ -13,6 +13,7 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         xtype: 'dataview',
         itemId: 'productList',
         bind: { store: '{items}' },
+        autoScroll : true,
         itemSelector: 'div.product-item',
         tpl: [
             '<div class="product-list">',
