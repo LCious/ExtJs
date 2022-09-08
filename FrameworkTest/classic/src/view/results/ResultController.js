@@ -9,8 +9,16 @@ Ext.define('FrameworkTest.view.results.ResultController', {
     //     })
     // },
     
-    goBack:function() {
-        var view = this.getView();
-        view.setActiveItem('product-list');
-    }
+
+    onItemClick: function(dataview, record, item, index, e, eOpts) {
+        this.getViewModel().set('selectedProduct', record);
+    },
+    goBack: function(dataview, record, item, index, e, eOpts) {
+        this.getViewModel().set('selectedProduct', null);
+    },
+    
+    // goBack:function() {
+    //     var view = this.getView();
+    //     view.setActiveItem('product-list');
+    // },
 });

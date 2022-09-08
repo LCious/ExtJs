@@ -3,17 +3,15 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     xtype: 'resultview',
     controller: 'resultcontroller',
     viewModel: 'resultmodel',
-    
-    title: 'DataView',
     fullscreen: true,
     flex: 1,
     layout: 'card',
-    activeItem: 0,
-
+    bind: {
+        activeItem: '{shownProductView}'
+    },
     items: [{
-        html: '<h1>Product List</h1>',
         xtype: 'dataview',
-        id: 'product-list',
+        itemId: 'productList',
         bind: { store: '{items}' },
         itemSelector: 'div.product-item',
         tpl: [
@@ -21,35 +19,50 @@ Ext.define('FrameworkTest.view.results.ResultView', {
             '<tpl for=".">',
             '<div class="product-item">',
             '<img src="classic/resources/images/{thumb}" />',
-            '<h3>{name}</h3>',
+            '<h3>{title}</h3>',
             '</div>',
             '</tpl>',
             '</div>',
         ],
+        listeners: {
+            itemclick: 'onItemClick'
+        }
     },
     {
-        html: '<h1>Product List</h1>',
         itemId: 'productDetails',
-        itemSelector: 'div.product-item',
-        bind: {
-            title: '{selectedProduct.title}',
-            img: '{selectedProduct.img}',
-            desc: '{selectedProduct.desc}',
+        layout: {
+            type: 'hbox',
+            pack: 'start',
+            align: 'stretch'
         },
-        tpl: [
-            '<tpl for=".">',
-            '<div class="product-item">',
-            '<img src="classic/resources/images/{thumb}" />',
-            '<h3>{name}</h3>',
-            '</div>',
-            '</tpl>'
-        ],
-        buttons:
-            [{
-                text: 'Back to List',
-                reference: 'btnPrev',
-                handler: 'goBack',
-            }]
+        bodyPadding: 10,
+        items: [
+            {
+                userCls: 'image-side',
+                flex: 1,
+                items: [{
+                    buttons: [{
+                        text: 'Back to List',
+                        reference: 'btnPrev',
+                        handler: 'goBack',
+                        left:'0px',
+                    }],
+                }, {
+                    bind: {
+                        html: '<img src="classic/resources/images/{selectedProduct.thumb}" />',
+                    },
+                }]
 
+
+            },
+            {
+                flex: 2,
+                bind: {
+                    title: '{selectedProduct.title}',
+
+                    html: 'Aprasymas: {selectedProduct.desc}<br>Tipas: {selectedProduct.type}',
+                },
+            }
+        ]
     }],
 });
