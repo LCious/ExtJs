@@ -46,7 +46,7 @@ Ext.define('FrameworkTest.view.main.Main', {
             headerPosition: 'top'
         },
         wide: {
-            headerPosition: 'left'
+            headerPosition: 'top'
         }
     },
 
@@ -55,8 +55,8 @@ Ext.define('FrameworkTest.view.main.Main', {
         tabConfig: {
             responsiveConfig: {
                 wide: {
-                    iconAlign: 'left',
-                    textAlign: 'left'
+                    iconAlign: 'right',
+                    textAlign: 'right'
                 },
                 tall: {
                     iconAlign: 'top',

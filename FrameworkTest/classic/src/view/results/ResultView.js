@@ -30,10 +30,20 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     },
     {
         itemId: 'productDetails',
-        layout: {
-            type: 'hbox',
-            pack: 'start',
-            align: 'stretch'
+        userCls: 'productDetails',
+        responsiveConfig: {
+            tall: {
+                layout: {
+                    type:'vbox',
+                    align: 'stretch'
+                },
+            },
+            wide: {
+                layout: {
+                    type: 'hbox',
+                    align: 'stretch'
+                },
+            }
         },
         bodyPadding: 10,
         items: [
@@ -45,22 +55,19 @@ Ext.define('FrameworkTest.view.results.ResultView', {
                         text: 'Back to List',
                         reference: 'btnPrev',
                         handler: 'goBack',
-                        left:'0px',
                     }],
                 }, {
                     bind: {
                         html: '<img src="classic/resources/images/{selectedProduct.thumb}" />',
                     },
                 }]
-
-
             },
             {
-                flex: 2,
+                userCls: 'text-side',
+                flex: 1,
                 bind: {
                     title: '{selectedProduct.title}',
-
-                    html: 'Aprasymas: {selectedProduct.desc}<br>Tipas: {selectedProduct.type}',
+                    html: '<div class="item-cont"><div class="cont1">Aprasymas: {selectedProduct.desc}</div><br><div class="cont2">Tipas: {selectedProduct.type}</div></div>',
                 },
             }
         ]
