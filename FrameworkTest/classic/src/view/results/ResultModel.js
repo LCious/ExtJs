@@ -22,6 +22,12 @@ Ext.define('FrameworkTest.view.results.ResultModel', {
                 { title: 'Foo15', thumb: 'test.png', desc: '{loremIpsum}', type: 'Kazkas' },
                 { title: 'Foo16', thumb: 'test.png', desc: '{loremIpsum}', type: 'Kazkas' },
                 { title: 'Foo17', thumb: 'test.png', desc: '{loremIpsum}', type: 'Kazkas' },
+                { title: 'Foo18', thumb: 'test.png', desc: '{loremIpsum}', type: 'Kazkas' },
+                { title: 'Foo19', thumb: 'test.png', desc: '{loremIpsum}', type: 'Kazkas' },
+                { title: 'Foo20', thumb: 'test.png', desc: '{loremIpsum}', type: 'Kazkas' },
+                { title: 'Foo21', thumb: 'test.png', desc: '{loremIpsum}', type: 'Kazkas' },
+                { title: 'Foo22', thumb: 'test.png', desc: '{loremIpsum}', type: 'Kazkas' },
+                { title: 'Foo23', thumb: 'test.png', desc: '{loremIpsum}', type: 'Kazkas' },
             ],
             autoLoad: true
         }
