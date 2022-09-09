@@ -10,24 +10,34 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         activeItem: '{shownProductView}'
     },
     items: [{
-        xtype: 'dataview',
-        itemId: 'productList',
-        bind: { store: '{items}' },
-        autoScroll : true,
-        itemSelector: 'div.product-item',
-        tpl: [
-            '<div class="product-list">',
-            '<tpl for=".">',
-            '<div class="product-item">',
-            '<img src="classic/resources/images/{thumb}" />',
-            '<h3>{title}</h3>',
-            '</div>',
-            '</tpl>',
-            '</div>',
-        ],
-        listeners: {
-            itemclick: 'onItemClick'
-        }
+        // layout: {
+        //     type: 'hbox',
+        //     align: 'stretch'
+        // },
+        // itemId: 'productList',
+        // items: [{
+        //     xtype:'searchview',
+        // }, 
+        // {
+            xtype: 'dataview',
+            itemId: 'productList',
+            bind: { store: '{items}' },
+            autoScroll: true,
+            itemSelector: 'div.product-item',
+            tpl: [
+                '<div class="product-list">',
+                '<tpl for=".">',
+                '<div class="product-item">',
+                '<img src="classic/resources/images/{thumb}" />',
+                '<h3>{title}</h3>',
+                '</div>',
+                '</tpl>',
+                '</div>',
+            ],
+            listeners: {
+                itemclick: 'onItemClick'
+            }
+        // }]
     },
     {
         itemId: 'productDetails',
@@ -35,7 +45,7 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         responsiveConfig: {
             tall: {
                 layout: {
-                    type:'vbox',
+                    type: 'vbox',
                     align: 'stretch'
                 },
             },

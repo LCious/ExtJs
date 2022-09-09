@@ -74,9 +74,11 @@ Ext.define('FrameworkTest.view.main.Main', {
             type:'hbox',
             align: 'stretch'
         },
-        items: [{
+        items: [
+            {
             xtype: 'searchview',
-        },{
+        },
+        {
             xtype: 'resultview',
         }],
     }, {
