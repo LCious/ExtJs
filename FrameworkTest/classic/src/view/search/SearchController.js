@@ -18,14 +18,10 @@ Ext.define('FrameworkTest.view.search.SearchController', {
             console.log('Three');
         }
     },
-    filterByType: function(type) {
+    filterById: function(type) {
         var store = Ext.getStore('dataviewItems');
-        if (type) {
             store.filterBy(function(rec) {
-                return rec.get('data.type') === type;
+                return rec.get('items.type') === type;
             });
-        } else {
-            store.clearFilter();
-        }
     }
 });        
