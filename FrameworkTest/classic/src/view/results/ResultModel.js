@@ -40,9 +40,8 @@ Ext.define('FrameworkTest.view.results.ResultModel', {
         shownProductView: {
             bind: '{selectedProduct}',
             get: function (selectedProduct) {
-                if (selectedProduct == null) {
-                    return "productList";
-                } else if (selectedProduct != null) {  return "productDetails"; }
+                if (selectedProduct == null) return "productList";
+                return "productDetails";
             }
         }
     },

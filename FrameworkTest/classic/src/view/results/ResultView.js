@@ -6,6 +6,12 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     fullscreen: true,
     flex: 1,
     layout: 'card',
+    config:{
+        filter:{
+            searchtext: '',
+            selectedType: '',
+        }
+    },
     bind: {
         activeItem: '{shownProductView}'
     },

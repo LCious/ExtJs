@@ -3,7 +3,7 @@ Ext.define('FrameworkTest.view.search.SearchView', {
     controller: 'searchcontroller',
     xtype: 'searchview',
     margin: '10px',
-    config:{
+    
         items: [{
             xtype: 'toolbar',
             border: true,
@@ -14,15 +14,16 @@ Ext.define('FrameworkTest.view.search.SearchView', {
             items: [{
                 userCls:'searchfield',
                 xtype: 'textfield',
-                name: 'searchItem',
-                itemId: 'searchItem',
+                id: 'searchid',
                 enableKeyEvents: true,
                 fieldLabel: 'Paieska',
                 allowBlank: true,
+                bind: { value: '{searchtext}'},            
+                listeners:{
+                    change: 'onChange',
+                },
             }],
-            listeners:{
-               
-            },
+
         }, {
             margin: '70px 0',
             xtype: 'fieldcontainer',
@@ -44,6 +45,5 @@ Ext.define('FrameworkTest.view.search.SearchView', {
                 }
             ]
     }]
-    }
     
 });

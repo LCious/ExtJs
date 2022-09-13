@@ -77,6 +77,9 @@ Ext.define('FrameworkTest.view.main.Main', {
         items: [
             {
             xtype: 'searchview',
+            listeners:{
+                    searchchange: 'onSearchChange'
+            }
         },
         {
             xtype: 'resultview',

@@ -9,7 +9,9 @@ Ext.define('FrameworkTest.view.results.ResultController', {
     goBack: function(dataview, record, item, index, e, eOpts) {
         this.getViewModel().set('selectedProduct', null);
     },
-    
+    onSearchChange: function(){
+        console.log('{searchtext}');
+    }
     // goBack:function() {
     //     var view = this.getView();
     //     view.setActiveItem('product-list');
