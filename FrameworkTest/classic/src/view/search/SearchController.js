@@ -9,7 +9,7 @@ Ext.define('FrameworkTest.view.search.SearchController', {
     
     onChange:function(textfield, newValue, oldValue, eOpts ){
         if(newValue.length >= 3){
-            console.log(newValue)
+            this.getViewModel().get('searchtext');
         }
     },
 
@@ -17,9 +17,9 @@ Ext.define('FrameworkTest.view.search.SearchController', {
 
 
     // filterById: function (type) {
-    //     var store = Ext.getStore('dataviewItems');
+    //     var store = Ext.getStore("Items");
     //     store.filterBy(function (rec) {
-    //         return rec.get('items.type') === type;
+    //         return rec.get("type") === type;
     //     });
     // }
 });        

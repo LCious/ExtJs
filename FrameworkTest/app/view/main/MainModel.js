@@ -2,6 +2,7 @@
  * This class is the view model for the Main view of the application.
  */
 Ext.define('FrameworkTest.view.main.MainModel', {
+    /** vscode-extjs-ignore-9 */
     extend: 'Ext.app.ViewModel',
 
     alias: 'viewmodel.main',

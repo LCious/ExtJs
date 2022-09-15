@@ -1,49 +1,46 @@
 Ext.define('FrameworkTest.view.search.SearchView', {
-    extend: 'Ext.panel.Panel',
+    extend: 'Ext.form.Panel',
     controller: 'searchcontroller',
+    viewModel: 'searchmodel',
     xtype: 'searchview',
     margin: '10px',
-    
-        items: [{
-            xtype: 'toolbar',
-            border: true,
-            baseCls: 'subMenu',
-            margin: '20px 0 0 0',
-            dock: 'top',
-            height: 40,
-            items: [{
-                userCls:'searchfield',
-                xtype: 'textfield',
-                id: 'searchid',
-                enableKeyEvents: true,
-                fieldLabel: 'Paieska',
-                allowBlank: true,
-                bind: { value: '{searchtext}'},            
-                listeners:{
-                    change: 'onChange',
-                },
-            }],
 
-        }, {
-            margin: '70px 0',
-            xtype: 'fieldcontainer',
-            fieldLabel: 'Filters',
-            defaultType: 'checkboxfield',
-            items: [
-                {
-                    boxLabel: 'Filter 1',
-                    type: 'A',
-                    handler: 'filterById'
-                }, {
-                    boxLabel: 'Filter 2',
-                    type: 'B',
-                    handler: 'filterById'
-                }, {
-                    boxLabel: 'Filter 3',
-                    type: 'C',
-                    handler: 'filterById'
-                }
-            ]
+    items: [{
+        xtype: 'toolbar',
+        border: false,
+        baseCls: '',
+        title: 'Search',
+        dock: 'top',
+        items: [{
+            xtype: 'textfield',
+            enableKeyEvents: true,
+            placeHolder: 'Enter',
+            bind: { value: '{searchtext}' },
+            listeners: {
+                change: 'onChange',
+            },
+        }],
+
+    }, {
+        margin: '70px 0',
+        xtype: 'fieldcontainer',
+        fieldLabel: 'Filters',
+        defaultType: 'checkboxfield',
+        items: [
+            {
+                boxLabel: 'Filter 1',
+                type: 'A',
+                handler: 'filterById'
+            }, {
+                boxLabel: 'Filter 2',
+                type: 'B',
+                handler: 'filterById'
+            }, {
+                boxLabel: 'Filter 3',
+                type: 'C',
+                handler: 'filterById'
+            }
+        ]
     }]
-    
+
 });

@@ -15,7 +15,6 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
             }, 
             get: function(data) { 
                 // if (searchtext == null && selectedType == null) return;
-                var data = Ext.getCmp('searchid').getData();
                 return data;
             }
         }

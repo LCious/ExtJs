@@ -6,7 +6,7 @@ Ext.define('FrameworkTest.view.results.ResultModel', {
         items: {
             data: [
                 { title: 'Foo1', thumb: 'test.png', desc: '{loremIpsum}', type: 'A' },
-                { title: 'Foo2', thumb: 'test.png', desc: '{loremIpsum}', type: 'A' },
+                { title: 'Foo2', thumb: 'test.png', desc: '{loremIpsum}', type: 'B' },
                 { title: 'Foo3', thumb: 'test.png', desc: '{loremIpsum}', type: 'A' },
                 { title: 'Foo4', thumb: 'test.png', desc: '{loremIpsum}', type: 'A' },
                 { title: 'Foo5', thumb: 'test.png', desc: '{loremIpsum}', type: 'B' },

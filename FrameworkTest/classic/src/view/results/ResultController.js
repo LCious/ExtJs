@@ -9,11 +9,18 @@ Ext.define('FrameworkTest.view.results.ResultController', {
     goBack: function(dataview, record, item, index, e, eOpts) {
         this.getViewModel().set('selectedProduct', null);
     },
-    onSearchChange: function(){
-        console.log('{searchtext}');
+
+    // ResultController'yje eventas, filtravimui
+    onSearchChange: function (textfield, newValue, oldValue, eOpts) {
+        if (newValue == '') {
+            dataview.getStore('Items').clearFilter();
+        } else {
+            dataview.getStore('Items').load().filter([{
+                property: 'type',
+                value: newValue,
+                anyMatch: true
+            }]);
+        }
     }
-    // goBack:function() {
-    //     var view = this.getView();
-    //     view.setActiveItem('product-list');
-    // },
+
 });
