@@ -7,15 +7,10 @@ Ext.define('FrameworkTest.view.main.MainController', {
 
     alias: 'controller.main',
 
-    onSearchChange: function() {
-        var inputText = this.getViewModel().set('searchText');
-        // var inputType = this.getViewModel().get('selectedType');
+    onSearchChange: function(searchComponent, searchData) {
+        var inputText = this.getViewModel().set(searchData);
+        var inputText = this.getViewModel().get(searchData);
         console.log(inputText);
     },
-
-    // onSearchChange: function() {
-    //     Ext.Msg.alert('Success!', this.getXType());
-    // },
-    // scope: 'resultview',
 
 });

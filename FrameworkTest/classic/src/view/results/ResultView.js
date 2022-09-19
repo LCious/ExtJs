@@ -65,6 +65,21 @@ Ext.define('FrameworkTest.view.results.ResultView', {
             ],
             listeners: {
                 itemclick: 'onItemClick'
+            },
+            filters: {
+                bind: { filter:'searchData' },
+                updateFilter: function(searchData) {
+                    var newValue = '{searchText}';
+                    if (newValue != null){
+                        store.filter([{
+                            property: "title",
+                            value: newValue,
+                            anyMatch: true
+                        }]);
+                    } else {
+                        store.clearFilter();
+                    }
+                },
             }
         // }]
     },
