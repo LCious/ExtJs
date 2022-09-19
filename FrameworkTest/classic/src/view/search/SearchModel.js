@@ -3,19 +3,22 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
     alias: 'viewmodel.searchmodel',
 
     data: { 
-        searchtext: '' ,
+        searchText: '' ,
         selectedType: '',
     },
-
+    
     formulas: { 
         searchData: { 
             bind: { 
-                searchtext: '{searchtext}', 
+                searchtext: '{searchText}', 
                 selectedType: '{selectedType}'
             }, 
             get: function(data) { 
-                // if (searchtext == null && selectedType == null) return;
-                return data;
+                return {
+                    searchText: data.searchtext,
+                    selectedType: data.selectedType
+                 };
+                // return data;
             }
         }
     }

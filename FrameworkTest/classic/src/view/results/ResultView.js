@@ -8,21 +8,44 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     layout: 'card',
     config:{
         filter:{
-            searchtext: '',
+            searchText: '',
             selectedType: '',
         }
     },
+
     bind: {
         activeItem: '{shownProductView}'
     },
     items: [{
-        // layout: {
-        //     type: 'hbox',
-        //     align: 'stretch'
-        // },
-        // itemId: 'productList',
+        responsiveConfig: {
+            tall: {
+                layout: {
+                    type: 'vbox',
+                    align: 'stretch'
+                },
+            },
+            wide: {
+                layout: {
+                    type: 'hbox',
+                    align: 'stretch'
+                },
+            }
+        },
+        
+        itemId: 'productList',
         // items: [{
         //     xtype:'searchview',
+        //     // dock: 'top',
+        //     // margin: '0 10 0 0',
+        //     // items: [{
+        //     //     xtype: 'textfield',
+        //     //     enableKeyEvents: true,
+        //     //     placeHolder: 'Enter',
+        //     //     // bind: { value: '{searchtext}' },
+        //     //     listeners: {
+        //     //         change: 'onChange',
+        //     //     },
+        //     // }],
         // }, 
         // {
             xtype: 'dataview',
@@ -46,8 +69,6 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         // }]
     },
     {
-        itemId: 'productDetails',
-        userCls: 'productDetails',
         responsiveConfig: {
             tall: {
                 layout: {
@@ -62,6 +83,9 @@ Ext.define('FrameworkTest.view.results.ResultView', {
                 },
             }
         },
+
+        itemId: 'productDetails',
+        userCls: 'productDetails',
         bodyPadding: 10,
         items: [
             {

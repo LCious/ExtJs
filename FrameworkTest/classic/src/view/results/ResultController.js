@@ -11,16 +11,20 @@ Ext.define('FrameworkTest.view.results.ResultController', {
     },
 
     // ResultController'yje eventas, filtravimui
-    onSearchChange: function (textfield, newValue, oldValue, eOpts) {
-        if (newValue == '') {
-            dataview.getStore('Items').clearFilter();
-        } else {
-            dataview.getStore('Items').load().filter([{
-                property: 'type',
+    onChange: function (textfield, newValue, oldValue, eOpts) {
+        var store = Ext.getStore('dataviewItems');
+        // var store = this.down('dataview').getStore();
+        if (newValue != null){
+            // store.filterBy(function(rec) {
+            //     return rec.get('type') === newValue;
+            // });
+            store.filter([{
+                property: "title",
                 value: newValue,
                 anyMatch: true
             }]);
+        } else {
+            store.clearFilter();
         }
     }
-
 });

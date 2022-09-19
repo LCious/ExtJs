@@ -8,18 +8,19 @@ Ext.define('FrameworkTest.view.main.Main', {
 
         'FrameworkTest.view.main.MainController',
         'FrameworkTest.view.main.MainModel',
-        'FrameworkTest.view.results.ResultView'
+        'FrameworkTest.view.results.ResultView',
+        'FrameworkTest.view.search.SearchView'
     ],
 
     controller: 'main',
     viewModel: 'main',
 
     ui: 'navigation',
-    
+
     tabBarHeaderPosition: 1,
     titleRotation: 0,
     tabRotation: 0,
-    
+
     header: {
         layout: {
             align: 'stretchmax'
@@ -66,24 +67,24 @@ Ext.define('FrameworkTest.view.main.Main', {
             }
         }
     },
-    
+
     items: [{
         title: 'Home',
         iconCls: 'fa-home',
-        layout:{
-            type:'hbox',
+        layout: {
+            type: 'hbox',
             align: 'stretch'
         },
         items: [
             {
-            xtype: 'searchview',
-            // listeners:{
-            //         searchchange: 'onSearchChange'
-            // }
-        },
-        {
-            xtype: 'resultview',
-        }],
+                xtype: 'searchview',
+                listeners:{
+                        searchchange: 'onSearchChange'
+                }
+            },
+            {
+                xtype: 'resultview',
+            }],
     }, {
         title: 'Contacts',
         iconCls: 'fa-user',

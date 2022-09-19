@@ -7,13 +7,15 @@ Ext.define('FrameworkTest.view.main.MainController', {
 
     alias: 'controller.main',
 
-    onItemSelected: function (sender, record) {
-        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
+    onSearchChange: function() {
+        var inputText = this.getViewModel().set('searchText');
+        // var inputType = this.getViewModel().get('selectedType');
+        console.log(inputText);
     },
 
-    onConfirm: function (choice) {
-        if (choice === 'yes') {
-            //
-        }
-    }
+    // onSearchChange: function() {
+    //     Ext.Msg.alert('Success!', this.getXType());
+    // },
+    // scope: 'resultview',
+
 });

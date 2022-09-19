@@ -3,8 +3,7 @@ Ext.define('FrameworkTest.view.search.SearchView', {
     controller: 'searchcontroller',
     viewModel: 'searchmodel',
     xtype: 'searchview',
-    margin: '10px',
-
+    margin: '10px',  
     items: [{
         xtype: 'toolbar',
         border: false,
@@ -15,10 +14,10 @@ Ext.define('FrameworkTest.view.search.SearchView', {
             xtype: 'textfield',
             enableKeyEvents: true,
             placeHolder: 'Enter',
-            bind: { value: '{searchtext}' },
-            listeners: {
-                change: 'onChange',
-            },
+            bind: { value: '{searchText}' },
+            // listeners: {
+            //     change: 'onChange',
+            // },
         }],
 
     }, {
@@ -29,16 +28,25 @@ Ext.define('FrameworkTest.view.search.SearchView', {
         items: [
             {
                 boxLabel: 'Filter 1',
-                type: 'A',
-                handler: 'filterById'
+                value: 'A',
+                bind: { value: 'selectedType' },
+                // listeners: {
+                //     check: 'onCheck',
+                // },
             }, {
                 boxLabel: 'Filter 2',
-                type: 'B',
-                handler: 'filterById'
+                value: 'A',
+                bind: { value: 'selectedType' },
+                // listeners: {
+                //     change: 'onChange',
+                // },
             }, {
                 boxLabel: 'Filter 3',
-                type: 'C',
-                handler: 'filterById'
+                value: 'A',
+                bind: { value: 'selectedType' },
+                // listeners: {
+                //     change: 'onChange',
+                // },
             }
         ]
     }]
