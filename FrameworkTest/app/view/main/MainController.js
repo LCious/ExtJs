@@ -7,9 +7,9 @@ Ext.define('FrameworkTest.view.main.MainController', {
 
     alias: 'controller.main',
 
-    onSearchChange: function(searchComponent, searchData) {
-        var inputText = this.getViewModel().set(searchData);
-        var inputText = this.getViewModel().get(searchData);
+    onSearchChange: function(searchComponent, searchData, item, index, e, eOpts) {
+        this.getViewModel().set('searchData', searchData);
+        var inputText = this.getViewModel().get();
         console.log(inputText);
     },
 

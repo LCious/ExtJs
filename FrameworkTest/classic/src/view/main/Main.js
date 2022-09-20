@@ -84,6 +84,7 @@ Ext.define('FrameworkTest.view.main.Main', {
             },
             {
                 xtype: 'resultview',
+                bind: { filter:'{searchData}' },
             }],
     }, {
         title: 'Contacts',

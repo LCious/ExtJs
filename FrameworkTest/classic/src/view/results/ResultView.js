@@ -13,6 +13,17 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         }
     },
 
+    updateFilter: function(newFilter) {
+        if (this.isConfiguring) return;
+        var store = this.getViewModel().getStore('dataviewItems');
+        if (newFilter == null) store.clearFilter();
+        store.filter([{
+            property: "title",
+            value: newFilter,
+            anyMatch: true
+        }]);
+    },
+
     bind: {
         activeItem: '{shownProductView}'
     },
@@ -66,21 +77,6 @@ Ext.define('FrameworkTest.view.results.ResultView', {
             listeners: {
                 itemclick: 'onItemClick'
             },
-            filters: {
-                bind: { filter:'searchData' },
-                updateFilter: function(searchData) {
-                    var newValue = '{searchText}';
-                    if (newValue != null){
-                        store.filter([{
-                            property: "title",
-                            value: newValue,
-                            anyMatch: true
-                        }]);
-                    } else {
-                        store.clearFilter();
-                    }
-                },
-            }
         // }]
     },
     {
