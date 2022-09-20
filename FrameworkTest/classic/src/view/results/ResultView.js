@@ -16,7 +16,7 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     updateFilter: function(newFilter) {
         if (this.isConfiguring) return;
         var store = this.getViewModel().getStore('dataviewItems');
-        if (newFilter == null) store.clearFilter();
+        if (newFilter == null) store.clearFilter();     //jei null clear'ina
         store.filter([{
             property: "title",
             value: newFilter,
