@@ -28,22 +28,19 @@ Ext.define('FrameworkTest.view.search.SearchView', {
         items: [
             {
                 boxLabel: 'Filter 1',
-                value: 'A',
-                // bind: { value: 'selectedType' },
+                bind: { value: 'selectedType.A'},
                 // listeners: {
                 //     check: 'onCheck',
                 // },
             }, {
                 boxLabel: 'Filter 2',
-                value: 'A',
-                // bind: { value: 'selectedType' },
+                bind: { value: 'selectedType.B'},
                 // listeners: {
                 //     change: 'onChange',
                 // },
             }, {
                 boxLabel: 'Filter 3',
-                value: 'A',
-                // bind: { value: 'selectedType' },
+                bind:{value: '{selectedType.C}'},
                 // listeners: {
                 //     change: 'onChange',
                 // },

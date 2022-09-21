@@ -6,22 +6,25 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     fullscreen: true,
     flex: 1,
     layout: 'card',
-    config:{
-        filter:{
+    config: {
+        filter: {
             searchText: '',
             selectedType: '',
         }
     },
 
-    updateFilter: function(newFilter) {
+    updateFilter: function (newFilter) {
         if (this.isConfiguring) return;
-        var store = this.getViewModel().getStore('dataviewItems');
-        if (newFilter == null) store.clearFilter();     //jei null clear'ina
+        var store = this.getViewModel().getStore('items');
+        if (newFilter.searchText == null) store.clearFilter();     //jei null clear'ina
         store.filter([{
             property: "title",
-            value: newFilter,
+            value: newFilter.searchText,
             anyMatch: true
         }]);
+        // store.filterBy(function (rec) {
+        //     return rec.get('title') === newFilter.searchText;
+        // });
     },
 
     bind: {
@@ -42,7 +45,7 @@ Ext.define('FrameworkTest.view.results.ResultView', {
                 },
             }
         },
-        
+
         itemId: 'productList',
         // items: [{
         //     xtype:'searchview',
@@ -59,24 +62,24 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         //     // }],
         // }, 
         // {
-            xtype: 'dataview',
-            itemId: 'productList',
-            bind: { store: '{items}' },
-            autoScroll: true,
-            itemSelector: 'div.product-item',
-            tpl: [
-                '<div class="product-list">',
-                '<tpl for=".">',
-                '<div class="product-item">',
-                '<img src="classic/resources/images/{thumb}" />',
-                '<h3>{title}</h3>',
-                '</div>',
-                '</tpl>',
-                '</div>',
-            ],
-            listeners: {
-                itemclick: 'onItemClick'
-            },
+        xtype: 'dataview',
+        itemId: 'productList',
+        bind: { store: '{items}' },
+        autoScroll: true,
+        itemSelector: 'div.product-item',
+        tpl: [
+            '<div class="product-list">',
+            '<tpl for=".">',
+            '<div class="product-item">',
+            '<img src="classic/resources/images/{thumb}" />',
+            '<h3>{title}</h3>',
+            '</div>',
+            '</tpl>',
+            '</div>',
+        ],
+        listeners: {
+            itemclick: 'onItemClick'
+        },
         // }]
     },
     {
