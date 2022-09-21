@@ -10,11 +10,9 @@ Ext.define('FrameworkTest.view.search.SearchController', {
       },
 
 
-    // onChange: function (data, newValue, oldValue, eOpts) {
-    //     var inputText = this.getViewModel().get('searchText');
-    //     // var inputType = this.getViewModel().get('selectedType');
-    //     console.log(inputText);
-    // },
+    onChange: function (data, newValue, oldValue, eOpts) {
+        this.getViewModel().set('searchText', newValue);
+    },
     // onCheck: function(checkboxfield, eOpts){
     //     var inputType = this.getViewModel().get('selectedType');
     //     console.log(inputType);

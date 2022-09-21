@@ -1,6 +1,17 @@
 Ext.define('FrameworkTest.view.search.SearchModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.searchmodel',
+    
+    stores:{
+        checkBox:{
+            data: [
+                { title: 'Tipas 1', type: 'A' },
+                { title: 'Tipas 2', type: 'B' },
+                { title: 'Tipas 3', type: 'C' },
+            ],
+            autoLoad: true
+        }
+    },
 
     data: { 
         searchText: '',
@@ -24,6 +35,14 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
                  };
                 // return data;
             }
+        }
+    },
+
+    proxy: {
+        type: 'memory',
+        reader: {
+            type: 'json',
+            rootProperty: 'data'
         }
     }
 
