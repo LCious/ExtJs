@@ -51,16 +51,18 @@ Ext.define('FrameworkTest.view.search.SearchView', {
         margin: '70px 0',
         xtype: 'grid',
         flex: 1,
-        columnLines: true,
-
+        columnLines: false,
+        bind: {store:'{checkBox}'},
         selModel: {
             type: 'checkboxmodel',
             checkOnly: true
         },
-        // bind: {store: '{checkBox}'},
         columns: [{
-            text: "Filters",
-            // dataIndex: 'title',
+            text: 'Filters',
+            dataIndex: 'title',
+            sortable: false,
+            bind: {selection:'{checkBox.type}'},
+            width:200,
         }]
     }]
 

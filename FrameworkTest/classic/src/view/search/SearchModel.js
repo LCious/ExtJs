@@ -5,9 +5,9 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
     stores:{
         checkBox:{
             data: [
-                { title: 'Tipas 1', type: 'A' },
-                { title: 'Tipas 2', type: 'B' },
-                { title: 'Tipas 3', type: 'C' },
+                { title: 'Tipas 1', type:false },
+                { title: 'Tipas 2', type: false },
+                { title: 'Tipas 3', type: false },
             ],
             autoLoad: true
         }
@@ -15,34 +15,36 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
 
     data: { 
         searchText: '',
-        selectedType: {
-            A: false,
-            B: false,
-            C: false
-          }
+        // selectedType: {
+        //     A: false,
+        //     B: false,
+        //     C: false
+        //   },
+        selection: '',
     },
     
     formulas: { 
         searchData: { 
             bind: { 
                 searchtext: '{searchText}', 
-                selectedType: '{selectedType}',
+                // selectedType: '{selectedType}',
             }, 
             get: function(data) { 
                 return {
                     searchText: data.searchtext,
-                    selectedType: data.selectedType
+                    // selectedType: data.selectedType
                  };
                 // return data;
             }
-        }
+        },
+        
     },
 
     proxy: {
         type: 'memory',
         reader: {
             type: 'json',
-            rootProperty: 'data'
+            rootProperty: ''
         }
     }
 
