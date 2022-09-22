@@ -20,19 +20,19 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
         //     B: false,
         //     C: false
         //   },
-        selectedType:'',
+        selectedTypes:'',
     },
 
     formulas: {
         searchData: {
             bind: {
                 searchText: '{searchText}',
-                selectedType: '{selectedType.type}',
+                selectedTypes: '{selectedTypes.type}',
             },
             get: function (data) {
                 return {
                     searchText: data.searchText,
-                    selectedType: data.selectedType
+                    selectedTypes: data.selectedTypes
                 };
                 // return data;
             }

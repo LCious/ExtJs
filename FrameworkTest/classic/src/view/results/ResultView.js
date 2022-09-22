@@ -22,10 +22,10 @@ Ext.define('FrameworkTest.view.results.ResultView', {
                 value: newFilter.searchText,
                 anyMatch: true
             }]);
-        } if (newFilter.selectedType != null) {
+        } if (newFilter.selectedTypes != null) {
             store.filter([{
                 property: "type",
-                value: newFilter.selectedType,
+                value: newFilter.selectedTypes,
                 anyMatch: true
             }]);
         } else {
