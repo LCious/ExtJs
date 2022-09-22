@@ -3,6 +3,7 @@ Ext.define('FrameworkTest.view.search.SearchView', {
     controller: 'searchcontroller',
     viewModel: 'searchmodel',
     xtype: 'searchview',
+    
     margin: '10px',
     items: [{
         xtype: 'toolbar',
@@ -50,19 +51,20 @@ Ext.define('FrameworkTest.view.search.SearchView', {
         // TO DO GRID
         margin: '70px 0',
         xtype: 'grid',
-        flex: 1,
+        width: 150,
         columnLines: false,
-        bind: {store:'{checkBox}'},
+        bind: {
+            store:'{checkBox}',
+            selection:'{selectedType}'
+        },
         selModel: {
             type: 'checkboxmodel',
-            checkOnly: true
+            checkOnly: true,
         },
         columns: [{
-            text: 'Filters',
+            text: 'Filtrai',
             dataIndex: 'title',
             sortable: false,
-            bind: {selection:'{checkBox.type}'},
-            width:200,
         }]
     }]
 

@@ -16,12 +16,21 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     updateFilter: function (newFilter) {
         if (this.isConfiguring) return;
         var store = this.getViewModel().getStore('items');
-        if (newFilter.searchText == null) store.clearFilter();     //jei null clear'ina
-        store.filter([{
-            property: "title",
-            value: newFilter.searchText,
-            anyMatch: true
-        }]);
+        if (newFilter.searchText != null) {
+            store.filter([{
+                property: "title",
+                value: newFilter.searchText,
+                anyMatch: true
+            }]);
+        } if (newFilter.selectedType != null) {
+            store.filter([{
+                property: "type",
+                value: newFilter.selectedType,
+                anyMatch: true
+            }]);
+        } else {
+            store.clearFilter()
+        };
         // store.filterBy(function (rec) {
         //     return rec.get('title') === newFilter.searchText;
         // });

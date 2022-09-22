@@ -1,43 +1,43 @@
 Ext.define('FrameworkTest.view.search.SearchModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.searchmodel',
-    
-    stores:{
-        checkBox:{
+
+    stores: {
+        checkBox: {
             data: [
-                { title: 'Tipas 1', type:false },
-                { title: 'Tipas 2', type: false },
-                { title: 'Tipas 3', type: false },
+                { title: 'Tipas 1', type: 'A' },
+                { title: 'Tipas 2', type: 'B' },
+                { title: 'Tipas 3', type: 'C' },
             ],
             autoLoad: true
         }
     },
 
-    data: { 
+    data: {
         searchText: '',
         // selectedType: {
         //     A: false,
         //     B: false,
         //     C: false
         //   },
-        selection: '',
+        selectedType:{},
     },
-    
-    formulas: { 
-        searchData: { 
-            bind: { 
-                searchtext: '{searchText}', 
-                // selectedType: '{selectedType}',
-            }, 
-            get: function(data) { 
+
+    formulas: {
+        searchData: {
+            bind: {
+                searchText: '{searchText}',
+                selectedType: '{selectedType.type}',
+            },
+            get: function (data) {
                 return {
-                    searchText: data.searchtext,
-                    // selectedType: data.selectedType
-                 };
+                    searchText: data.searchText,
+                    selectedType: data.selectedType
+                };
                 // return data;
             }
         },
-        
+
     },
 
     proxy: {
