@@ -20,7 +20,7 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
         //     B: false,
         //     C: false
         //   },
-        selectedType:{},
+        selectedType:'',
     },
 
     formulas: {
