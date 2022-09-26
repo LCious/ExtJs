@@ -15,12 +15,12 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
 
     data: {
         searchText: '',
-        // selectedType: {
+        // selectedTypes: {
         //     A: false,
         //     B: false,
         //     C: false
         //   },
-        selectedTypes:'',
+        selectedTypes: '',
     },
 
     formulas: {

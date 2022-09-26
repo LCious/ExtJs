@@ -10,7 +10,7 @@ Ext.define('FrameworkTest.view.results.ResultController', {
         this.getViewModel().set('selectedProduct', null);
     },
 
-    // ResultController'yje eventas, filtravimui (local)
+    // ResultController'yje eventas, filtravimui (search) (local)
     // onChange: function (textfield, newValue, oldValue, eOpts) {
     //     var store = Ext.getStore('dataviewItems');
     //     // var store = this.down('dataview').getStore();

@@ -9,23 +9,7 @@ Ext.define('FrameworkTest.view.search.SearchController', {
         });
       },
 
-
-    onChange: function (data, newValue, oldValue, eOpts) {
+    onChange:function(data,newValue,oldValue,eOpts){
         this.getViewModel().set('searchText', newValue);
     },
-    // onCheck: function(checkboxfield, eOpts){
-    //     var inputType = this.getViewModel().get('selectedType');
-    //     console.log(inputType);
-    // }
-
-
-
-
-
-    // filterById: function (type) {
-    //     var store = Ext.getStore("Items");
-    //     store.filterBy(function (rec) {
-    //         return rec.get("type") === type;
-    //     });
-    // }
 });        

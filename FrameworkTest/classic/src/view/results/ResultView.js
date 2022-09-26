@@ -9,52 +9,32 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     config: {
         filter: {
             searchText: '',
-            selectedType: '',
+            selectedTypes: '',
         }
     },
 
     updateFilter: function (newFilter) {
         if (this.isConfiguring) return;
         var store = this.getViewModel().getStore('items');
+        if (newFilter.searchText || newFilter.selectedTypes == null) store.clearFilter();
         if (newFilter.searchText != null) {
             store.filter([{
                 property: "title",
                 value: newFilter.searchText,
                 anyMatch: true
             }]);
-        } if (newFilter.selectedTypes != null) {
-            store.filter([{
-                property: "type",
-                value: newFilter.selectedTypes,
-                anyMatch: true
-            }]);
-        } else {
-            store.clearFilter()
-        };
-        // store.filterBy(function (rec) {
-        //     return rec.get('title') === newFilter.searchText;
-        // });
+        }
+        if (newFilter.selectedTypes != null) {
+            store.filterBy(function (rec) {
+                return rec.get('type') === newFilter.selectedTypes;
+            });
+        }
     },
 
     bind: {
         activeItem: '{shownProductView}'
     },
     items: [{
-        responsiveConfig: {
-            tall: {
-                layout: {
-                    type: 'vbox',
-                    align: 'stretch'
-                },
-            },
-            wide: {
-                layout: {
-                    type: 'hbox',
-                    align: 'stretch'
-                },
-            }
-        },
-
         itemId: 'productList',
         // items: [{
         //     xtype:'searchview',
@@ -92,20 +72,20 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         // }]
     },
     {
-        responsiveConfig: {
-            tall: {
-                layout: {
-                    type: 'vbox',
-                    align: 'stretch'
-                },
-            },
-            wide: {
-                layout: {
-                    type: 'hbox',
-                    align: 'stretch'
-                },
-            }
-        },
+        // responsiveConfig: {
+        //     tall: {
+        //         layout: {
+        //             type: 'vbox',
+        //             align: 'stretch'
+        //         },
+        //     },
+        //     wide: {
+        //         layout: {
+        //             type: 'hbox',
+        //             align: 'stretch'
+        //         },
+        //     }
+        // },
 
         itemId: 'productDetails',
         userCls: 'productDetails',

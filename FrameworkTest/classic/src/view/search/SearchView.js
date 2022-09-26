@@ -3,24 +3,25 @@ Ext.define('FrameworkTest.view.search.SearchView', {
     controller: 'searchcontroller',
     viewModel: 'searchmodel',
     xtype: 'searchview',
-    
+    // flex: 1,
+    width: 200,
     margin: '10px',
     items: [{
         xtype: 'toolbar',
         border: false,
         baseCls: '',
-        title: 'Search',
         dock: 'top',
         items: [{
+            flex:1,
             xtype: 'textfield',
             enableKeyEvents: true,
             placeHolder: 'Enter',
             // bind: { value: '{searchText}' },
             listeners: {
                 change: 'onChange',
-                buffer: 200,
-            },
-        }],
+                buffer: 200
+            }
+        }]
     }, {
         // margin: '70px 0',
         // xtype: 'fieldcontainer',
@@ -30,38 +31,30 @@ Ext.define('FrameworkTest.view.search.SearchView', {
         //     {
         //         boxLabel: 'Type A',
         //         bind: { value: 'selectedType.A'},
-        //         // listeners: {
-        //         //     check: 'onCheck',
-        //         // },
         //     }, {
         //         boxLabel: 'Type B',
         //         bind: { value: 'selectedType.B'},
-        //         // listeners: {
-        //         //     change: 'onChange',
-        //         // },
         //     }, {
         //         boxLabel: 'Type C',
         //         bind:{value: '{selectedType.C}'},
-        //         // listeners: {
-        //         //     change: 'onChange',
-        //         // },
         //     }
         // ]
 
         // TO DO GRID
-        margin: '70px 0',
+        margin: '30px 0 0 0',
         xtype: 'grid',
-        width: 150,
+        flex: 1,
         columnLines: false,
         bind: {
-            store:'{checkBox}',
-            selection:'{selectedType}'
+            store: '{checkBox}',
+            selection: '{selectedTypes}'
         },
         selModel: {
             type: 'checkboxmodel',
             checkOnly: true,
         },
         columns: [{
+            flex: 1,
             text: 'Filtrai',
             dataIndex: 'title',
             sortable: false,

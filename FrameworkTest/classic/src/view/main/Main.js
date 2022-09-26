@@ -57,7 +57,7 @@ Ext.define('FrameworkTest.view.main.Main', {
             responsiveConfig: {
                 wide: {
                     iconAlign: 'right',
-                    textAlign: 'right'
+                    textAlign: 'right',
                 },
                 tall: {
                     iconAlign: 'top',
@@ -71,20 +71,33 @@ Ext.define('FrameworkTest.view.main.Main', {
     items: [{
         title: 'Home',
         iconCls: 'fa-home',
-        layout: {
-            type: 'hbox',
-            align: 'stretch'
+        responsiveConfig: {
+            wide: {
+                layout: {
+                    type: 'hbox',
+                    align: 'stretch'
+                },
+            },
+            tall: {
+                layout: {
+                    type: 'vbox',
+                    align: 'stretch'
+                },
+            }
         },
         items: [
             {
                 xtype: 'searchview',
-                listeners:{
-                        searchchange: 'onSearchChange'
+                listeners: {
+                    searchchange: 'onSearchChange'
                 }
             },
             {
+                flex: 1,
                 xtype: 'resultview',
-                bind: { filter:'{searchData}' },
+                bind: {
+                    filter: '{searchData}'
+                }
             }],
     }, {
         title: 'Contacts',
