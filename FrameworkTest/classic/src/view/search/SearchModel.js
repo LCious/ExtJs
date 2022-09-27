@@ -30,15 +30,15 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
                 selectedTypes: '{selectedTypes}',
             },
             get: function (data) {
-                let object = data.selectedTypes;
-                let object_type = object.get('type');
-                kazkas = [];
-                for(let x of Object.entries(object)){
-                    kazkas[x] += object[x];
+                let checkBox_data= data.selectedTypes;
+                // let object_type = object.getValues('type');
+                selected_filters = [];
+                for(let x of checkBox_data){
+                    selected_filters[x] += checkBox_data[x];
                 }
                 return {
                     searchText: data.searchText,
-                    selectedTypes: kazkas
+                    selectedTypes: selected_filters
                 };
                 // return data;
             }
