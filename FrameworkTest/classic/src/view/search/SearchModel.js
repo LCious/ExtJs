@@ -20,19 +20,25 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
         //     B: false,
         //     C: false
         //   },
-        selectedTypes: '',
+        selectedTypes:[],
     },
 
     formulas: {
         searchData: {
             bind: {
                 searchText: '{searchText}',
-                selectedTypes: '{selectedTypes.type}',
+                selectedTypes: '{selectedTypes}',
             },
             get: function (data) {
+                let object = data.selectedTypes;
+                let object_type = object.get('type');
+                kazkas = [];
+                for(let x of Object.entries(object)){
+                    kazkas[x] += object[x];
+                }
                 return {
                     searchText: data.searchText,
-                    selectedTypes: data.selectedTypes
+                    selectedTypes: kazkas
                 };
                 // return data;
             }

@@ -47,7 +47,7 @@ Ext.define('FrameworkTest.view.search.SearchView', {
         columnLines: false,
         bind: {
             store: '{checkBox}',
-            selection: '{selectedTypes}'
+            // selection: '{selectedTypes}'
         },
         selModel: {
             type: 'checkboxmodel',
@@ -58,7 +58,11 @@ Ext.define('FrameworkTest.view.search.SearchView', {
             text: 'Filtrai',
             dataIndex: 'title',
             sortable: false,
-        }]
+
+        }],
+            listeners:{
+                selectionchange: 'selectionChange',
+            },
     }]
 
 });

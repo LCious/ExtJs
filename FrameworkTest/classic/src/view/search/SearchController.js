@@ -12,4 +12,8 @@ Ext.define('FrameworkTest.view.search.SearchController', {
     onChange:function(data,newValue,oldValue,eOpts){
         this.getViewModel().set('searchText', newValue);
     },
+
+    selectionChange:function(grid, records, eOpts){
+      this.getViewModel().set('selectedTypes', records);
+    },
 });        
