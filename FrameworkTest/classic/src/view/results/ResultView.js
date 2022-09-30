@@ -12,23 +12,36 @@ Ext.define('FrameworkTest.view.results.ResultView', {
             selectedTypes: '',
         }
     },
-
     updateFilter: function (newFilter) {
         if (this.isConfiguring) return;
         var store = this.getViewModel().getStore('items');
-        if (newFilter.searchText || newFilter.selectedTypes == null) store.clearFilter();
-        if (newFilter.searchText != null) {
-            store.filter([{
-                property: "title",
-                value: newFilter.searchText,
-                anyMatch: true
-            }]);
-        }
-        if (newFilter.selectedTypes != null) {
-            store.filterBy(function (rec) {
-                return rec.get('type') === newFilter.selectedTypes;
+
+        function matchesSearchText(searchText, rec){
+            return rec.get('title').indexOf(searchText) !== -1;
+        };
+        function matchesSelectedType(selectedType, rec) {
+            return selectedType.indexOf(rec.get('type')) !== -1;
+        };
+        if (!newFilter.searchText.length || !newFilter.selectedTypes.length) store.clearFilter();
+        if (newFilter.searchText.length || newFilter.selectedTypes.length) {
+            store.filterBy(rec => {
+                return matchesSelectedType(newFilter.selectedTypes, rec) && matchesSearchText(newFilter.searchText, rec);
             });
         }
+
+        // if (!newFilter.searchText.length || !newFilter.selectedTypes.length) store.clearFilter();
+        // if (newFilter.searchText.length) {
+        //     store.filter([{
+        //         property: "title",
+        //         value: newFilter.searchText,
+        //         anyMatch: true
+        //     }]);
+        // }
+        // if (newFilter.selectedTypes.length) {
+        //     store.filterBy(function (rec) {
+        //         return newFilter.selectedTypes.indexOf(rec.get('type')) !== -1;
+        //     });
+        // }
     },
 
     bind: {
@@ -72,20 +85,20 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         // }]
     },
     {
-        // responsiveConfig: {
-        //     tall: {
-        //         layout: {
-        //             type: 'vbox',
-        //             align: 'stretch'
-        //         },
-        //     },
-        //     wide: {
-        //         layout: {
-        //             type: 'hbox',
-        //             align: 'stretch'
-        //         },
-        //     }
-        // },
+        responsiveConfig: {
+            tall: {
+                layout: {
+                    type: 'vbox',
+                    align: 'stretch'
+                },
+            },
+            wide: {
+                layout: {
+                    type: 'hbox',
+                    align: 'stretch'
+                },
+            }
+        },
 
         itemId: 'productDetails',
         userCls: 'productDetails',

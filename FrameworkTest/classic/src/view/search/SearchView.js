@@ -12,7 +12,7 @@ Ext.define('FrameworkTest.view.search.SearchView', {
         baseCls: '',
         dock: 'top',
         items: [{
-            flex:1,
+            flex: 1,
             xtype: 'textfield',
             enableKeyEvents: true,
             placeHolder: 'Enter',
@@ -40,7 +40,7 @@ Ext.define('FrameworkTest.view.search.SearchView', {
         //     }
         // ]
 
-        // TO DO GRID
+        //GRID
         margin: '30px 0 0 0',
         xtype: 'grid',
         flex: 1,
@@ -60,9 +60,9 @@ Ext.define('FrameworkTest.view.search.SearchView', {
             sortable: false,
 
         }],
-            listeners:{
-                selectionchange: 'selectionChange',
-            },
+        listeners: {
+            selectionchange: 'selectionChange',
+        },
     }]
 
 });

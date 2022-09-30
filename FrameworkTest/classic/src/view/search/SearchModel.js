@@ -20,7 +20,7 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
         //     B: false,
         //     C: false
         //   },
-        selectedTypes:[],
+        selectedTypes:"",
     },
 
     formulas: {
@@ -31,10 +31,10 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
             },
             get: function (data) {
                 let checkBox_data= data.selectedTypes;
-                // let object_type = object.getValues('type');
-                selected_filters = [];
+                let selected_filters = [];
                 for(let x of checkBox_data){
-                    selected_filters[x] += checkBox_data[x];
+                    let p = x.get('type');
+                    selected_filters.push(p);
                 }
                 return {
                     searchText: data.searchText,
