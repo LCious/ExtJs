@@ -25,8 +25,11 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         if (!newFilter.searchText.length || !newFilter.selectedTypes.length) store.clearFilter();
         if (newFilter.searchText.length || newFilter.selectedTypes.length) {
             store.filterBy(rec => {
-                return matchesSelectedType(newFilter.selectedTypes, rec) && matchesSearchText(newFilter.searchText, rec);
+                if (newFilter.searchText.length && !newFilter.selectedTypes.length) return matchesSearchText(newFilter.searchText, rec);
+                if (!newFilter.searchText.length && newFilter.selectedTypes.length) return matchesSelectedType(newFilter.selectedTypes, rec);
+                if(newFilter.searchText.length && newFilter.selectedTypes.length) return matchesSelectedType(newFilter.selectedTypes, rec) && matchesSearchText(newFilter.searchText, rec);
             });
+
         }
 
         // if (!newFilter.searchText.length || !newFilter.selectedTypes.length) store.clearFilter();
