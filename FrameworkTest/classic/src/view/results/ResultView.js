@@ -16,35 +16,19 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         if (this.isConfiguring) return;
         var store = this.getViewModel().getStore('items');
 
-        function matchesSearchText(searchText, rec){
+        function matchesSearchText(searchText, rec){ 
+            if(!searchText.length) return true;
             return rec.get('title').indexOf(searchText) !== -1;
         };
         function matchesSelectedType(selectedType, rec) {
+            if(!selectedType.length) return true;
             return selectedType.indexOf(rec.get('type')) !== -1;
         };
-        if (!newFilter.searchText.length || !newFilter.selectedTypes.length) store.clearFilter();
-        if (newFilter.searchText.length || newFilter.selectedTypes.length) {
-            store.filterBy(rec => {
-                if (newFilter.searchText.length && !newFilter.selectedTypes.length) return matchesSearchText(newFilter.searchText, rec);
-                if (!newFilter.searchText.length && newFilter.selectedTypes.length) return matchesSelectedType(newFilter.selectedTypes, rec);
-                if(newFilter.searchText.length && newFilter.selectedTypes.length) return matchesSelectedType(newFilter.selectedTypes, rec) && matchesSearchText(newFilter.searchText, rec);
-            });
+        store.clearFilter();
+        store.filterBy(rec => {
+            return matchesSelectedType(newFilter.selectedTypes, rec) && matchesSearchText(newFilter.searchText, rec);
+        });
 
-        }
-
-        // if (!newFilter.searchText.length || !newFilter.selectedTypes.length) store.clearFilter();
-        // if (newFilter.searchText.length) {
-        //     store.filter([{
-        //         property: "title",
-        //         value: newFilter.searchText,
-        //         anyMatch: true
-        //     }]);
-        // }
-        // if (newFilter.selectedTypes.length) {
-        //     store.filterBy(function (rec) {
-        //         return newFilter.selectedTypes.indexOf(rec.get('type')) !== -1;
-        //     });
-        // }
     },
 
     bind: {

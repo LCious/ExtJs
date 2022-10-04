@@ -1,14 +1,15 @@
 .x-panel-body{
     .product-list{
         margin: 10px 0;
-        text-align:center;
-        
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: flex-start;
+        // align-items: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+        justify-content: center;
         .product-item{
-            width:200px;
+            text-align:center;
         }
     }
     .productDetails{
