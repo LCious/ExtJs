@@ -3,28 +3,11 @@ Ext.define('FrameworkTest.view.results.ResultController', {
 
     alias: 'controller.resultcontroller',
 
-    onItemClick: function(dataview, record, item, index, e, eOpts) {
+    onItemClick: function(dataview, record, item, index, e, eOpts) {    // item click function
         this.getViewModel().set('selectedProduct', record);
     },
-    goBack: function(dataview, record, item, index, e, eOpts) {
+
+    goBack: function(dataview, record, item, index, e, eOpts) {         // go back functionality
         this.getViewModel().set('selectedProduct', null);
     },
-
-    // ResultController'yje eventas, filtravimui (search) (local)
-    // onChange: function (textfield, newValue, oldValue, eOpts) {
-    //     var store = Ext.getStore('dataviewItems');
-    //     // var store = this.down('dataview').getStore();
-    //     if (newValue != null){
-    //         // store.filterBy(function(rec) {
-    //         //     return rec.get('type') === newValue;
-    //         // });
-    //         store.filter([{
-    //             property: "title",
-    //             value: newValue,
-    //             anyMatch: true
-    //         }]);
-    //     } else {
-    //         store.clearFilter();
-    //     }
-    // }
 });

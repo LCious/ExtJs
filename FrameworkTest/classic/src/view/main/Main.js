@@ -4,8 +4,6 @@ Ext.define('FrameworkTest.view.main.Main', {
 
     requires: [
         'Ext.plugin.Viewport',
-        'Ext.window.MessageBox',
-
         'FrameworkTest.view.main.MainController',
         'FrameworkTest.view.main.MainModel',
         'FrameworkTest.view.results.ResultView',
@@ -17,15 +15,12 @@ Ext.define('FrameworkTest.view.main.Main', {
 
     ui: 'navigation',
 
-    tabBarHeaderPosition: 1,
-    titleRotation: 0,
-    tabRotation: 0,
-
     header: {
         layout: {
             align: 'stretchmax'
         },
         title: {
+            align: 'center',
             bind: {
                 text: '{name}'
             },
@@ -42,50 +37,28 @@ Ext.define('FrameworkTest.view.main.Main', {
         }
     },
 
-    responsiveConfig: {
-        tall: {
-            headerPosition: 'top'
-        },
-        wide: {
-            headerPosition: 'top'
-        }
-    },
-
-    defaults: {
+    defaults:{
         bodyPadding: 20,
-        tabConfig: {
-            responsiveConfig: {
-                wide: {
-                    iconAlign: 'right',
-                    textAlign: 'right',
-                },
-                tall: {
-                    iconAlign: 'top',
-                    textAlign: 'center',
-                    width: 120
-                }
-            }
-        }
     },
 
     items: [{
         title: 'Home',
         iconCls: 'fa-home',
-        responsiveConfig: {
+        responsiveConfig: {         
             wide: {
                 layout: {
                     type: 'hbox',
                     align: 'stretch'
-                },
+                }
             },
             tall: {
                 layout: {
                     type: 'vbox',
-                    align: 'stretch'
-                },
+                    align: 'stretch',
+                }
             }
         },
-        items: [
+        items: [            // search/checkbox filters + product list/product view
             {
                 xtype: 'searchview',
                 listeners: {
@@ -98,7 +71,7 @@ Ext.define('FrameworkTest.view.main.Main', {
                 bind: {
                     filter: '{searchData}'
                 }
-            }],
+            }]
     }, {
         title: 'Contacts',
         iconCls: 'fa-user',

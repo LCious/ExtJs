@@ -3,7 +3,6 @@ Ext.define('FrameworkTest.view.results.ResultView', {
     xtype: 'resultview',
     controller: 'resultcontroller',
     viewModel: 'resultmodel',
-    fullscreen: true,
     flex: 1,
     layout: 'card',
     config: {
@@ -12,45 +11,30 @@ Ext.define('FrameworkTest.view.results.ResultView', {
             selectedTypes: '',
         }
     },
+
     updateFilter: function (newFilter) {
         if (this.isConfiguring) return;
         var store = this.getViewModel().getStore('items');
-
-        function matchesSearchText(searchText, rec){ 
+        function matchesSearchText(searchText, rec){            // search text matches
             if(!searchText.length) return true;
             return rec.get('title').indexOf(searchText) !== -1;
         };
-        function matchesSelectedType(selectedType, rec) {
+        function matchesSelectedType(selectedType, rec) {       // selected type matches
             if(!selectedType.length) return true;
             return selectedType.indexOf(rec.get('type')) !== -1;
         };
         store.clearFilter();
-        store.filterBy(rec => {
+        store.filterBy(rec => {                                 // return search/type
             return matchesSelectedType(newFilter.selectedTypes, rec) && matchesSearchText(newFilter.searchText, rec);
         });
-
     },
 
     bind: {
         activeItem: '{shownProductView}'
     },
+
     items: [{
         itemId: 'productList',
-        // items: [{
-        //     xtype:'searchview',
-        //     // dock: 'top',
-        //     // margin: '0 10 0 0',
-        //     // items: [{
-        //     //     xtype: 'textfield',
-        //     //     enableKeyEvents: true,
-        //     //     placeHolder: 'Enter',
-        //     //     // bind: { value: '{searchtext}' },
-        //     //     listeners: {
-        //     //         change: 'onChange',
-        //     //     },
-        //     // }],
-        // }, 
-        // {
         xtype: 'dataview',
         itemId: 'productList',
         bind: { store: '{items}' },
@@ -69,24 +53,26 @@ Ext.define('FrameworkTest.view.results.ResultView', {
         listeners: {
             itemclick: 'onItemClick'
         },
-        // }]
     },
     {
+        //Responsive product page
         responsiveConfig: {
             tall: {
                 layout: {
                     type: 'vbox',
-                    align: 'stretch'
+                    align: 'stretch',
+                    autoScroll: true
                 },
             },
             wide: {
                 layout: {
                     type: 'hbox',
-                    align: 'stretch'
+                    align: 'stretch',
+                    autoScroll: true
                 },
             }
         },
-
+        //Showing productDetails
         itemId: 'productDetails',
         userCls: 'productDetails',
         bodyPadding: 10,

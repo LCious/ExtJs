@@ -3,10 +3,9 @@ Ext.define('FrameworkTest.view.search.SearchView', {
     controller: 'searchcontroller',
     viewModel: 'searchmodel',
     xtype: 'searchview',
-    // flex: 1,
     width: 200,
-    margin: '10px',
     items: [{
+        // search filters
         xtype: 'toolbar',
         border: false,
         baseCls: '',
@@ -14,40 +13,20 @@ Ext.define('FrameworkTest.view.search.SearchView', {
         items: [{
             flex: 1,
             xtype: 'textfield',
-            enableKeyEvents: true,
-            placeHolder: 'Enter',
-            // bind: { value: '{searchText}' },
             listeners: {
                 change: 'onChange',
                 buffer: 200
             }
         }]
-    }, {
-        // margin: '70px 0',
-        // xtype: 'fieldcontainer',
-        // fieldLabel: 'Filters',
-        // defaultType: 'checkboxfield',
-        // items: [
-        //     {
-        //         boxLabel: 'Type A',
-        //         bind: { value: 'selectedType.A'},
-        //     }, {
-        //         boxLabel: 'Type B',
-        //         bind: { value: 'selectedType.B'},
-        //     }, {
-        //         boxLabel: 'Type C',
-        //         bind:{value: '{selectedType.C}'},
-        //     }
-        // ]
-
-        //GRID
-        margin: '30px 0 0 0',
+    }, 
+    {
+        // checkbox filters
+        margin: '10 0',
         xtype: 'grid',
         flex: 1,
         columnLines: false,
         bind: {
             store: '{checkBox}',
-            // selection: '{selectedTypes}'
         },
         selModel: {
             type: 'checkboxmodel',

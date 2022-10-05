@@ -1,10 +1,6 @@
 .x-panel-body{
     .product-list{
         margin: 10px 0;
-        // display: flex;
-        // flex-wrap: wrap;
-        // justify-content: flex-start;
-        // align-items: center;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
         justify-content: center;

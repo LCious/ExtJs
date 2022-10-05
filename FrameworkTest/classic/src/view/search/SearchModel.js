@@ -15,12 +15,7 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
 
     data: {
         searchText: '',
-        // selectedTypes: {
-        //     A: false,
-        //     B: false,
-        //     C: false
-        //   },
-        selectedTypes:"",
+        selectedTypes:'',
     },
 
     formulas: {
@@ -40,18 +35,8 @@ Ext.define('FrameworkTest.view.search.SearchModel', {
                     searchText: data.searchText,
                     selectedTypes: selected_filters
                 };
-                // return data;
             }
         },
 
     },
-
-    proxy: {
-        type: 'memory',
-        reader: {
-            type: 'json',
-            rootProperty: ''
-        }
-    }
-
 });
