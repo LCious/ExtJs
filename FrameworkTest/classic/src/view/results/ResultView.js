@@ -61,14 +61,12 @@ Ext.define('FrameworkTest.view.results.ResultView', {
                 layout: {
                     type: 'vbox',
                     align: 'stretch',
-                    autoScroll: true
                 },
             },
             wide: {
                 layout: {
                     type: 'hbox',
                     align: 'stretch',
-                    autoScroll: true
                 },
             }
         },
